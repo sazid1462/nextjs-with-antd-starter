@@ -9,7 +9,7 @@ import cookies from "next-cookies";
 export const GlobalContext = createContext();
 
 const withContext = (Component) => {
-    return function GlobalContextProvider() {
+    return function GlobalContextProvider(props) {
         const authContext = ContextBinder(useReducer(AuthReducer, initAuthState), {
             loginRequest,
             logoutRequest,
@@ -27,7 +27,7 @@ const withContext = (Component) => {
                     userContext
                 }}
             >
-                <Component/>
+                <Component {...props}/>
             </GlobalContext.Provider>
         );
     }
