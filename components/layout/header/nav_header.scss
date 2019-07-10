@@ -1,0 +1,12 @@
+@import '../../../static/scss/common.scss';
+
+.nav_header {
+    @include flexContentRightAlign;
+    align-items: center;
+    background: $white;
+    padding: 0 16px;
+
+    .drop_down {
+        cursor: pointer;
+    }
+}

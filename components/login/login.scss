@@ -1,0 +1,27 @@
+@import '../../../assets/scss/common.scss';
+
+.login_form_wrapper {
+    
+    @include fullDisplay;
+    @include flexContentCenter;
+
+    .login_form {
+        width: 300px;
+        border: 1px solid $border_color;
+        padding: $padding;
+    }
+    
+    .login_title {
+        text-align: center;
+    }
+
+    .login_form_forgot {
+        float: right;
+    }
+    
+    .login_form_button {
+        display: block;
+        width: 100%;
+    }
+    
+}

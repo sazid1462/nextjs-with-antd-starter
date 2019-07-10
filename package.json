@@ -1,0 +1,22 @@
+{
+  "name": "create-next-example-app",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "antd": "^3.20.1",
+    "babel-plugin-import": "^1.12.0",
+    "next": "^9.0.0",
+    "node-sass": "^4.12.0",
+    "null-loader": "^3.0.0",
+    "prop-types": "latest",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "@zeit/next-sass": "^1.0.1"
+  }
+}

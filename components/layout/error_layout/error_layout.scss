@@ -1,0 +1,18 @@
+@import '../../../static/scss/common.scss';
+
+.error_layout {
+
+    @include fullDisplay;
+    @include flexContentCenter;
+    flex-direction: column;
+
+    .status {
+        display: block;
+        color: $red;
+    }
+
+    .sub_title {
+        display: block;
+    }
+
+}

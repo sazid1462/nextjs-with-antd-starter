@@ -1,0 +1,36 @@
+/* Variable */
+$white: #ffffff;
+$red: #ff0000;
+$border_color: #dddddd;
+
+/* Common */
+$padding: 16px;
+
+/* Mixin */
+@mixin transform($property) {
+    -webkit-transform: $property;
+    -ms-transform: $property;
+    transform: $property;
+}
+
+@mixin transition($property) {
+    -webkit-transition: $property;
+    -ms-transition: $property;
+    transition: $property;
+}
+
+@mixin flexContentCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flexContentRightAlign {
+    display: flex;
+    justify-content: right;
+}
+
+@mixin fullDisplay {
+    width: 100%;
+    min-height: 100vh;
+}
