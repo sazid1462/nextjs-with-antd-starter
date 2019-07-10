@@ -1,15 +1,14 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import {Button, Checkbox, Form, Icon, Input} from 'antd';
 /* SCSS */
 import '../static/scss/login.scss';
 
-import Router, {useRouter} from "next/router";
 import withContext, {GlobalContext} from "../contexts/WithContext";
+import {redirectTo} from "../components/common/Redirect";
 
 const Login = (props) => {
 
     const {authContext} = useContext(GlobalContext);
-    const router = useRouter();
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -23,14 +22,10 @@ const Login = (props) => {
 
     const {getFieldDecorator} = props.form;
 
-    useEffect(() => {
-        if (authContext.isLogin) {
-            Router.replace({
-                pathname: router.query.redirectTo
-            });
-        }
-    }, [authContext.isLogin]);
-
+    if (authContext.isLogin) {
+        redirectTo('/dashboard', {status: 301});
+        return null;
+    }
 
     return (
         <div className="login_form_wrapper">

@@ -11,16 +11,10 @@ export const loginRequest = (dispatch, user) => {
     dispatch({type: LOGIN_REQUEST});
     setTimeout(() => {
         if (user.username === 'admin' && user.password === '123') {
-
             dispatch({type: LOGIN_SUCCESS});
-            localStorage.setItem('auth', JSON.stringify({
-                isLogin: true,
-                token: '',
-                user: null,
-                loading: false,
-            }));
-
+            document.cookie = "authtoken=dummyCookieAllowUser; expires=Thu, 01 Jan 2970 00:00:00 UTC; path=/;";
         } else {
+            document.cookie = "authtoken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
             dispatch({type: LOGIN_FAILED})
         }
     }, 2000);
