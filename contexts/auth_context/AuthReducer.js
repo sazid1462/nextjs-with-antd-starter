@@ -1,9 +1,10 @@
 import {LOGIN_FAILED, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT_REQUEST, SYNC_AUTH} from "./AuthActions";
+import cookies from "next-cookies";
 
 /* Auth State */
 // const auth = JSON.parse(localStorage.getItem('auth'));
 export const initAuthState = {
-    isLogin: false,
+    isLoggedIn: false,
     token: '',
     user: null,
     loading: false,
@@ -18,28 +19,36 @@ export const AuthReducer = (state, action) => {
                 ...state,
                 loading: true
             };
-        case LOGIN_SUCCESS:
+        case LOGIN_SUCCESS: {
+            const cookie = cookies();
             return {
                 ...state,
-                isLogin: true,
+                ...cookie,
+                isLoggedIn: true,
                 loading: false
             };
+        }
         case LOGIN_FAILED:
             return {
                 ...state,
                 loading: false
             };
-        case LOGOUT_REQUEST:
+        case LOGOUT_REQUEST: {
+            const cookie = cookies();
             return {
                 ...state,
-                isLogin: false
+                ...cookie,
+                isLoggedIn: false
             };
-        case SYNC_AUTH:
-            const auth = JSON.parse(localStorage.getItem('auth'));
+        }
+        case SYNC_AUTH: {
+            const cookie = cookies();
             return {
                 ...state,
-                ...auth
+                ...cookie,
+                isLoggedIn: Boolean(cookie.token)
             };
+        }
         default:
             return state;
     }

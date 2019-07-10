@@ -4,6 +4,7 @@ import Link from 'next/link';
 /* SCSS */
 import './nav_header.scss'
 import {GlobalContext} from "../../../contexts/WithContext";
+import {redirectTo} from "../../common/Redirect";
 
 const {Header} = Layout;
 
@@ -13,6 +14,7 @@ const NavHeader = () => {
 
     const logout = () => {
         authContext.logoutRequest();
+        redirectTo('/login');
     };
 
     const menu = (

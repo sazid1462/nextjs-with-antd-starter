@@ -1,18 +1,20 @@
-import React, {useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import dynamic from 'next/dynamic';
 import {Layout} from 'antd';
 import CustomFooter from './Footer';
 import NavHeader from './header/NavHeader';
 import '../../static/scss/layout.scss';
+import {GlobalContext} from "../../contexts/WithContext";
+import cookies from "next-cookies";
 
 const AsideLeft = dynamic(import('./AsideLeft'));
-
 
 const {Sider, Content} = Layout;
 
 const DefaultLayout = ({children}) => {
 
     const [collapsed, setCollapsed] = useState(true);
+    // const {authContext} = useContext(GlobalContext);
 
     const onCollapse = collapsed => {
         setCollapsed(collapsed)

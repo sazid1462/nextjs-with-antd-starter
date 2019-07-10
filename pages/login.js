@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {Button, Checkbox, Form, Icon, Input} from 'antd';
 /* SCSS */
 import '../static/scss/login.scss';
@@ -22,7 +22,7 @@ const Login = (props) => {
 
     const {getFieldDecorator} = props.form;
 
-    if (authContext.isLogin) {
+    if (authContext.isLoggedIn) {
         redirectTo('/dashboard', {status: 301});
         return null;
     }
