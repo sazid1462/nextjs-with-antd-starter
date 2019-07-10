@@ -1,20 +1,20 @@
-import React, {createContext, useEffect, useReducer} from 'react';
-import {UserReducer, initUserState} from './user_context/UserReducer';
-import {AuthReducer, initAuthState} from './auth_context/AuthReducer';
-import {loginRequest, logoutRequest, syncAuth} from './auth_context/AuthActions';
-import {addUser} from './user_context/UserActions';
-import {ContextBinder} from './ContextBinder';
+import React, { createContext, useEffect, useReducer } from 'react';
+import { UserReducer, initUserState } from './user_context/UserReducer';
+import { AuthReducer, initAuthState } from './auth_context/AuthReducer';
+import { loginRequest, logoutRequest, syncAuth } from './auth_context/AuthActions';
+import { addUser } from './user_context/UserActions';
+import { ContextBinder } from './ContextBinder';
 
 export const GlobalContext = createContext();
 
 const withContext = (Component) => {
-    return function GlobalContextProvider() {
+    return function GlobalContextProvider(props) {
         const authContext = ContextBinder(useReducer(AuthReducer, initAuthState), {
             loginRequest,
             logoutRequest,
             syncAuth
         });
-        const userContext = ContextBinder(useReducer(UserReducer, initUserState), {addUser});
+        const userContext = ContextBinder(useReducer(UserReducer, initUserState), { addUser });
 
         return (
             <GlobalContext.Provider
@@ -23,7 +23,7 @@ const withContext = (Component) => {
                     userContext
                 }}
             >
-                <Component/>
+                <Component {...props} />
             </GlobalContext.Provider>
         );
     }
