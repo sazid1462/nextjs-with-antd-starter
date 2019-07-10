@@ -1,5 +1,5 @@
 {
-  "name": "create-next-example-app",
+  "name": "create-next-example-app-with-antd",
   "scripts": {
     "dev": "next",
     "build": "next build",

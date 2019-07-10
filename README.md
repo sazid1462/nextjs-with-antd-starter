@@ -1,4 +1,4 @@
-# VIVA CMS
+# NextJS with AntDesign Starter
 
 ## NPM scripts
 
