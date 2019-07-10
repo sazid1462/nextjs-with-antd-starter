@@ -1,13 +1,16 @@
 {
   "name": "create-next-example-app-with-antd",
   "scripts": {
-    "dev": "next",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "next start"
+    "start": "cross-env NODE_ENV=production node server.js"
   },
   "dependencies": {
     "antd": "^3.20.1",
     "babel-plugin-import": "^1.12.0",
+    "eslint": "^6.0.1",
+    "eslint-plugin-react": "^7.14.2",
+    "express": "^4.17.1",
     "next": "^9.0.0",
     "node-sass": "^4.12.0",
     "null-loader": "^3.0.0",

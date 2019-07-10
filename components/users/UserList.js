@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
-import { Table } from 'antd';
-import { GlobalContext } from '../../../contexts/GlobalContextProvider';
+import React, {useContext} from 'react';
+import {Table} from 'antd';
+import {GlobalContext} from "../../contexts/WithContext";
 
 const UserList = () => {
 
-    const { userContext } = useContext(GlobalContext);
+    const {userContext} = useContext(GlobalContext);
 
     const userColumns = [
         {
@@ -23,11 +23,11 @@ const UserList = () => {
             dataIndex: 'lastName',
             key: 'lastName',
         }
-    ]
+    ];
 
     return (
-        <Table columns={userColumns} dataSource={userContext.users} rowKey="id" />
+        <Table columns={userColumns} dataSource={userContext.users} rowKey="id"/>
     );
-}
+};
 
 export default UserList;

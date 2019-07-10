@@ -1,10 +1,9 @@
 import React from 'react';
 import PropsTypes from 'prop-types';
-
 /* SCSS */
 import './error_layout.scss';
 
-const ErrorLayout = ({ status, subTitle, children }) => {
+const ErrorLayout = ({status, subTitle, children}) => {
 
     return (
         <div className="error_layout">
@@ -15,11 +14,11 @@ const ErrorLayout = ({ status, subTitle, children }) => {
             </div>
         </div>
     );
-}
+};
 
 ErrorLayout.prototypes = {
     status: PropsTypes.number.isRequired,
     subTitle: PropsTypes.string.isRequired
-}
+};
 
 export default ErrorLayout;

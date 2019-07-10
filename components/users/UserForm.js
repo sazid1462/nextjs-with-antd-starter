@@ -1,15 +1,15 @@
-import React, { useContext, useEffect } from 'react';
-import { Form, Input, Button } from 'antd';
-import { GlobalContext } from '../../../contexts/GlobalContextProvider';
+import React, {useContext, useEffect} from 'react';
+import {Button, Form, Input} from 'antd';
+import {GlobalContext} from "../../contexts/WithContext";
 
-const { Item } = Form;
+const {Item} = Form;
 
 const UserForm = (props) => {
 
-    const { userContext } = useContext(GlobalContext);
+    const {userContext} = useContext(GlobalContext);
 
 
-    const { getFieldDecorator, setFieldsValue } = props.form;
+    const {getFieldDecorator, setFieldsValue} = props.form;
 
     useEffect(() => {
         // console.log(userContext)
@@ -29,33 +29,33 @@ const UserForm = (props) => {
                 const data = {
                     id: parseInt(((Math.random() + 1) * 1000000)),
                     ...values
-                }
+                };
                 userContext.addUser(data);
             }
         });
-    }
+    };
 
     return (
         <Form onSubmit={userFormSubmit}>
             <Item>
                 {
                     getFieldDecorator('firstName', {
-                        rules: [{ required: true, message: 'Please input your first name!' }],
-                    })(<Input placeholder="First Name" />)
+                        rules: [{required: true, message: 'Please input your first name!'}],
+                    })(<Input placeholder="First Name"/>)
                 }
             </Item>
             <Item>
                 {
                     getFieldDecorator('lastName', {
-                        rules: [{ required: true, message: 'Please input your last name!' }],
-                    })(< Input placeholder="Last Name" />)
+                        rules: [{required: true, message: 'Please input your last name!'}],
+                    })(< Input placeholder="Last Name"/>)
                 }
             </Item>
             <Button htmlType="submit">Submit</Button>
         </Form>
     );
-}
+};
 
-const WrapperedUserForm = Form.create({ name: 'user_form' })(UserForm);
+const WrappedUserForm = Form.create({name: 'user_form'})(UserForm);
 
-export default WrapperedUserForm;
+export default WrappedUserForm;

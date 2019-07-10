@@ -1,7 +1,7 @@
 import React from 'react';
-import { Spin } from 'antd';
+import {Spin} from 'antd';
 
-const LoadingSuspense = ({ height, width }) => {
+const LoadingSuspense = ({height, width}) => {
 
     const style = {
         display: 'flex',
@@ -9,18 +9,18 @@ const LoadingSuspense = ({ height, width }) => {
         justifyContent: 'center',
         height,
         width
-    }
+    };
 
     return (
-        <div style={style} >
-            <Spin size='large' />
+        <div style={style}>
+            <Spin size='large'/>
         </div>
     );
-}
+};
 
 LoadingSuspense.defaultProps = {
     width: "100%",
     height: "100%"
-}
+};
 
 export default LoadingSuspense;

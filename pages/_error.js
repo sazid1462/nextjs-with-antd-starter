@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'antd';
+import {Button} from 'antd';
 import Link from 'next/link';
 import {ROOT_PATH} from "../routes/Slugs";
 import ErrorLayout from "../components/layout/error_layout/ErrorLayout";
@@ -14,6 +14,6 @@ const ErrorPage = () => {
             </Link>
         </ErrorLayout>
     );
-}
+};
 
 export default ErrorPage;

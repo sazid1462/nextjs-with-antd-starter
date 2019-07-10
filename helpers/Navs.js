@@ -1,32 +1,32 @@
 import React from 'react';
-import { Icon } from "antd";
-import { DASHBOARD_PATH, LOGIN_PATH, PAGE_403_PATH, PAGE_500_PATH, PAGE_404_PATH, USER_PATH } from '../routes/Slugs';
+import {Icon} from "antd";
+import {DASHBOARD_PATH, LOGIN_PATH, PAGE_403_PATH, PAGE_500_PATH, PAGE_404_PATH, USER_PATH} from '../routes/Slugs';
 
 const Navs = [
     {
         key: 'dashboard',
         title: 'Dashboard',
         path: DASHBOARD_PATH,
-        icon: <Icon type="pie-chart" />,
+        icon: <Icon type="pie-chart"/>,
         subMenu: null
     },
     {
         key: 'user',
         title: 'USER',
         path: USER_PATH,
-        icon: <Icon type="user" />,
+        icon: <Icon type="user"/>,
         subMenu: null
     },
     {
         key: 'pages',
         title: 'Pages',
-        icon: <Icon type="star" />,
+        icon: <Icon type="star"/>,
         subMenu: [
             {
                 key: 'login',
                 title: 'Login',
                 path: LOGIN_PATH,
-                icon: <Icon type="login" />,
+                icon: <Icon type="login"/>,
                 subMenu: null
             },
             {
@@ -46,6 +46,6 @@ const Navs = [
             }
         ]
     }
-]
+];
 
 export default Navs;

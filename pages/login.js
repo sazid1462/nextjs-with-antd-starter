@@ -1,15 +1,15 @@
-import React, { useContext } from 'react';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
-import { Redirect } from 'react-router-dom';
-
+import React, {useContext, useEffect} from 'react';
+import {Button, Checkbox, Form, Icon, Input} from 'antd';
 /* SCSS */
-import './login.scss';
-import { GlobalContext } from '../../../contexts/GlobalContextProvider';
-import { ROOT_PATH } from '../../../routes/Slugs';
+import '../static/scss/login.scss';
+
+import Router, {useRouter} from "next/router";
+import withContext, {GlobalContext} from "../contexts/WithContext";
 
 const Login = (props) => {
 
-    const { authContext } = useContext(GlobalContext);
+    const {authContext} = useContext(GlobalContext);
+    const router = useRouter();
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -21,9 +21,16 @@ const Login = (props) => {
         });
     };
 
-    const { getFieldDecorator } = props.form;
+    const {getFieldDecorator} = props.form;
 
-    if (authContext.isLogin) return <Redirect to={ROOT_PATH} />
+    useEffect(() => {
+        if (authContext.isLogin) {
+            Router.replace({
+                pathname: router.query.redirectTo
+            });
+        }
+    }, [authContext.isLogin]);
+
 
     return (
         <div className="login_form_wrapper">
@@ -31,20 +38,20 @@ const Login = (props) => {
                 <h4 className="login_title">Login</h4>
                 <Form.Item>
                     {getFieldDecorator('username', {
-                        rules: [{ required: true, message: 'Please input your username!' }],
+                        rules: [{required: true, message: 'Please input your username!'}],
                     })(
                         <Input
-                            prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                            prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
                             placeholder="Username"
                         />,
                     )}
                 </Form.Item>
                 <Form.Item>
                     {getFieldDecorator('password', {
-                        rules: [{ required: true, message: 'Please input your Password!' }],
+                        rules: [{required: true, message: 'Please input your Password!'}],
                     })(
                         <Input
-                            prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                            prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}
                             type="password"
                             placeholder="Password"
                         />,
@@ -72,8 +79,8 @@ const Login = (props) => {
             </Form>
         </div>
     );
-}
+};
 
-const WrappedLogin = Form.create({ name: 'login' })(Login);
+const WrappedLogin = Form.create({name: 'login'})(Login);
 
-export default WrappedLogin;
+export default withContext(WrappedLogin);

@@ -1,11 +1,10 @@
 import React, {useContext} from 'react';
-import {PageHeader, Row, Col, Card, Avatar} from 'antd';
-
+import {Avatar, Card, Col, PageHeader, Row} from 'antd';
 /* SCSS */
 import '../static/scss/dashboard.scss'
-import {GlobalContext} from "../contexts/WithContext";
+
+import withContext, {GlobalContext} from "../contexts/WithContext";
 import PageWrapper from "../components/common/PageWrapper";
-import withContext from "../contexts/WithContext";
 import DefaultLayout from "../components/layout/DefaultLayout";
 
 const {Meta} = Card;
@@ -49,6 +48,6 @@ const Dashboard = () => {
             </PageWrapper>
         </DefaultLayout>
     );
-}
+};
 
 export default withContext(Dashboard);

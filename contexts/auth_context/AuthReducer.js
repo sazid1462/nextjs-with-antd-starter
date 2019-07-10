@@ -1,4 +1,4 @@
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILED, LOGOUT_REQUEST } from "./AuthActions";
+import {LOGIN_FAILED, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT_REQUEST, SYNC_AUTH} from "./AuthActions";
 
 /* Auth State */
 // const auth = JSON.parse(localStorage.getItem('auth'));
@@ -34,7 +34,13 @@ export const AuthReducer = (state, action) => {
                 ...state,
                 isLogin: false
             };
+        case SYNC_AUTH:
+            const auth = JSON.parse(localStorage.getItem('auth'));
+            return {
+                ...state,
+                ...auth
+            };
         default:
             return state;
     }
-}
+};

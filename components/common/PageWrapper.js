@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
+import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 
-const PageWrapper = ({ pageHeader, children }) => {
+const PageWrapper = ({pageHeader, children}) => {
     return (
         <Fragment>
             <div className="page_header">
@@ -12,11 +12,11 @@ const PageWrapper = ({ pageHeader, children }) => {
             </div>
         </Fragment>
     );
-}
+};
 
 
 PageWrapper.propTypes = {
     children: PropTypes.element.isRequired
-}
+};
 
 export default PageWrapper;
