@@ -1,14 +1,14 @@
-import React, {useContext, useEffect} from 'react';
-import {Button, Checkbox, Form, Icon, Input} from 'antd';
+import React, { useContext, useEffect } from 'react';
+import { Button, Checkbox, Form, Icon, Input } from 'antd';
 /* SCSS */
 import '../static/scss/login.scss';
 
-import withContext, {GlobalContext} from "../contexts/WithContext";
-import {redirectTo} from "../components/common/Redirect";
+import withContext, { GlobalContext } from "../contexts/WithContext";
+import { redirectTo } from "../components/common/Redirect";
 
 const Login = (props) => {
 
-    const {authContext} = useContext(GlobalContext);
+    const { authContext } = useContext(GlobalContext);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -20,10 +20,10 @@ const Login = (props) => {
         });
     };
 
-    const {getFieldDecorator} = props.form;
+    const { getFieldDecorator } = props.form;
 
     if (authContext.isLoggedIn) {
-        redirectTo('/dashboard', {status: 301});
+        redirectTo('/dashboard', { status: 301 });
         return null;
     }
 
@@ -33,20 +33,20 @@ const Login = (props) => {
                 <h4 className="login_title">Login</h4>
                 <Form.Item>
                     {getFieldDecorator('username', {
-                        rules: [{required: true, message: 'Please input your username!'}],
+                        rules: [{ required: true, message: 'Please input your username!' }],
                     })(
                         <Input
-                            prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}}/>}
+                            prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
                             placeholder="Username"
                         />,
                     )}
                 </Form.Item>
                 <Form.Item>
                     {getFieldDecorator('password', {
-                        rules: [{required: true, message: 'Please input your Password!'}],
+                        rules: [{ required: true, message: 'Please input your Password!' }],
                     })(
                         <Input
-                            prefix={<Icon type="lock" style={{color: 'rgba(0,0,0,.25)'}}/>}
+                            prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
                             type="password"
                             placeholder="Password"
                         />,
@@ -76,6 +76,6 @@ const Login = (props) => {
     );
 };
 
-const WrappedLogin = Form.create({name: 'login'})(Login);
+const WrappedLogin = Form.create({ name: 'login' })(Login);
 
 export default withContext(WrappedLogin);

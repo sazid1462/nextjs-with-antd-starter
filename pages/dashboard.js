@@ -1,19 +1,19 @@
-import React, {useContext} from 'react';
-import {Avatar, Card, Col, PageHeader, Row} from 'antd';
+import React, { useContext } from 'react';
+import { Avatar, Card, Col, PageHeader, Row } from 'antd';
 /* SCSS */
 import '../static/scss/dashboard.scss'
 
-import withContext, {GlobalContext} from "../contexts/WithContext";
+import withContext, { GlobalContext } from "../contexts/WithContext";
 import PageWrapper from "../components/common/PageWrapper";
 import DefaultLayout from "../components/layout/DefaultLayout";
 
-const {Meta} = Card;
+const { Meta } = Card;
 
 const Dashboard = () => {
 
-    const {userContext} = useContext(GlobalContext);
+    const { userContext } = useContext(GlobalContext);
 
-    const pageHeader = <PageHeader title="Dashboard" subTitle="This is a subtitle"/>;
+    const pageHeader = <PageHeader title="Dashboard" subTitle="This is a subtitle" />;
 
     return (
         <DefaultLayout>
@@ -24,7 +24,7 @@ const Dashboard = () => {
                     <Col xs={24} sm={8}>
                         <Card>
                             <Meta
-                                avatar={<Avatar icon='user'/>}
+                                avatar={<Avatar icon='user' />}
                                 title="Number Of Users"
                                 description={userContext.users.length}
                             />
@@ -49,5 +49,6 @@ const Dashboard = () => {
         </DefaultLayout>
     );
 };
+
 
 export default withContext(Dashboard);
