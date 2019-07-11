@@ -1,6 +1,6 @@
 import Link from "next/link";
-import {DASHBOARD_PATH} from "../routes/Slugs";
-import {Button} from "antd";
+import { DASHBOARD_PATH } from "../routes/Slugs";
+import { Button } from "antd";
 import ErrorLayout from "../components/layout/error_layout/ErrorLayout";
 import React from "react";
 
