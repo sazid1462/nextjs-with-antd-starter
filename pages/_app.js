@@ -1,11 +1,10 @@
 import { API_BASE_PATH } from '../routes/Slugs'
 import App, { Container } from 'next/app'
-import React, { useEffect } from 'react'
+import React from 'react'
 // import fetch from 'isomorphic-unfetch';
 import { mockFetch } from '../helpers/mockFetch';
 import { redirectTo } from '../components/common/Redirect'
 import cookies from 'next-cookies';
-import withContext from "../contexts/WithContext";
 
 class CMSApp extends App {
 
@@ -63,7 +62,7 @@ class CMSApp extends App {
                         if (resp.result === "success") return {
                             ...pageProps, ...{
                                 query: ctx.query,
-                                token: c.authtoken
+                                token: c.token
                             }
                         };
 
